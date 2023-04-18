@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Pokemon  Solid";
+  src: url("fonts/POS_____.eot"), url("fonts/POS_____.woff") format("woff"),
+    url("fonts/POS_____.ttf") format("truetype"),
+    url("fonts/POS_____.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: auto 0%;
+}
+
+body::after {
+  content: "";
+  background: url("grafika/fancy-background.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#pokemons {
+  width: 17rem;
+  height: 3rem;
+  border: solid #ffd000 5px;
+  border-radius: 20px;
+  margin: 40px;
+  text-align: center;
+}
+
+.choose-pokemon {
+  margin-bottom: 25px;
+  font-family: "Pokemon  Solid";
+  color: #de4604;
+}
+
+.pikachu-picture {
+  position: relative;
+}
+
+.picture-display {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: antiquewhite;
+}
+
+footer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 10rem;
+  background-color: white;
+  height: 5rem;
+}
+
+.logo {
+  width: 15rem;
+}
+
+.pokemon-napis {
+  text-align: end;
+  z-index: -1;
+}
