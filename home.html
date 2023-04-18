@@ -11,7 +11,6 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <script src="script.js"></script>
     <title>Projekt Pokemon</title>
   </head>
 
@@ -23,14 +22,7 @@
           style="height: 30rem"
         >
           <h2 class="choose-pokemon">Choose your Pokemon!</h2>
-          <select name="pokemons" id="pokemons" size="1">
-            <option value="Pikachu">Pikachu</option>
-            <option value="Bulbasaur">Bulbasaur</option>
-            <option value="Chalizard">Chalizard</option>
-            <option value="Onyx">Onyx</option>
-            <option value="Caterpie">Caterpie</option>
-            <option value="Magikarp">Magikarp</option>
-          </select>
+          <select name="pokemons" class="pokemons-select" size="1"></select>
           <img class="pikachu-picture" src="grafika/Pikachu-SVG.svg" />
         </div>
         <div></div>
@@ -45,8 +37,9 @@
         <div class="info-area"></div>
       </div>
     </div>
+    <footer>
+      <img class="logo" src="grafika/logo.svg" />
+    </footer>
+    <script src="script.js"></script>
   </body>
-  <footer>
-    <img class="logo" src="grafika/logo.svg" />
-  </footer>
 </html>

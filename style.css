@@ -23,7 +23,7 @@ body::after {
   z-index: -1;
 }
 
-#pokemons {
+.pokemons-select {
   width: 17rem;
   height: 3rem;
   border: solid #ffd000 5px;
