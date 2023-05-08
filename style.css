@@ -7,6 +7,31 @@
   font-style: normal;
 }
 
+@media (max-width: 576px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 5rem;
+  }
+  .pikachu-picture {
+    display: none;
+  }
+  .pokemons-select {
+    width: 14rem;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pikachu-picture {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .pikachu-picture {
+  }
+}
 body {
   margin: auto 0%;
 }
@@ -39,7 +64,8 @@ body::after {
 }
 
 .pikachu-picture {
-  position: relative;
+  width: 35rem;
+  height: 35rem;
 }
 
 .picture-display {

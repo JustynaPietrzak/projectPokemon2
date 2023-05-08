@@ -40,3 +40,17 @@ pokemonList.forEach((element) => {
 });
 console.log(pokemonsSelect);
 pokemonsSelect.innerHTML = optionsToSelect;
+
+pokemonsSelect.addEventListener("change", function () {
+  document.getElementById("name-placeholder").innerHTML =
+    pokemonList[pokemonsSelect.selectedIndex].name;
+
+  document.getElementById("type-placeholder").innerHTML =
+    pokemonList[pokemonsSelect.selectedIndex].type;
+
+  document.getElementById("evolutionLevel-placeholder").innerHTML =
+    pokemonList[pokemonsSelect.selectedIndex].evolutionLevel;
+
+  document.getElementById("otherForms-placeholder").innerHTML =
+    pokemonList[pokemonsSelect.selectedIndex].otherForms;
+});
