@@ -41,7 +41,11 @@ pokemonList.forEach((element) => {
 console.log(pokemonsSelect);
 pokemonsSelect.innerHTML = optionsToSelect;
 
-pokemonsSelect.addEventListener("change", function () {
+pokemonsSelect.addEventListener("change", setPokemonDataToTemplate);
+
+setPokemonDataToTemplate();
+
+function setPokemonDataToTemplate() {
   document.getElementById("name-placeholder").innerHTML =
     pokemonList[pokemonsSelect.selectedIndex].name;
 
@@ -53,4 +57,4 @@ pokemonsSelect.addEventListener("change", function () {
 
   document.getElementById("otherForms-placeholder").innerHTML =
     pokemonList[pokemonsSelect.selectedIndex].otherForms;
-});
+}
