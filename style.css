@@ -7,7 +7,7 @@
   font-style: normal;
 }
 
-@media (max-width: 576px) {
+/*@media (max-width: 576px) {
   body {
     display: flex;
     flex-direction: column;
@@ -30,9 +30,9 @@
 }
 @media (min-width: 768px) {
   .pikachu-picture {
-  }
-}
-body {
+  } */
+
+.page {
   margin: auto 0%;
 }
 
