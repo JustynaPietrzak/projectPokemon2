@@ -1,9 +1,10 @@
 @font-face {
   font-family: "Pokemon  Solid";
-  src: url("fonts/Pokemon-font.eot"), url("fonts/Pokemon-font.woff") format("woff"),
+  src: url("fonts/Pokemon-font.eot"),
+    url("fonts/Pokemon-font.woff") format("woff"),
     url("fonts/Pokemon-font.ttf") format("truetype"),
     url("fonts/Pokemon-font.svg") format("svg");
-  font-weight: normal
+  font-weight: normal;
   font-style: normal;
 }
 
