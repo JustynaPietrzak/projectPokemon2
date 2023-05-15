@@ -61,6 +61,10 @@ body::after {
   color: #de4604;
 }
 
+td {
+  width: 50%;
+}
+
 .pikachu-image {
   background: url(grafika/pl.svg) no-repeat center center / contain;
   height: 210px;
