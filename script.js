@@ -1,34 +1,45 @@
 const pokemonList = [
   {
-    name: "Pikachu",
+    name: "pikachu",
     type: "electric",
-    evolutionLevel: "1",
-    otherForms: "Raichu",
+    "evolution-level": "1",
+    "other-forms": "Raichu",
+    src: "https://picsum.photos/id/1/150",
   },
   {
-    name: "Bulbasaur",
+    name: "bulbasaur",
     type: "grass/poison",
-    evolutionLevel: "1",
-    otherForms: "Ivysaur, Venusaur",
+    "evolution-level": "1",
+    "other-forms": "Ivysaur, Venusaur",
+    src: "https://picsum.photos/id/2/150",
   },
   {
-    name: "Charizard",
+    name: "charizard",
     type: "fire/flying",
-    evolutionLevel: "3",
-    otherForms: "none",
+    "evolution-level": "3",
+    "other-forms": "none",
+    src: "https://picsum.photos/id/3/150",
   },
-  { name: "Onyx", type: "stone", evolutionLevel: "2", otherForms: "none" },
   {
-    name: "Caterpie",
+    name: "onyx",
+    type: "stone",
+    "evolution-level": "2",
+    "other-forms": "none",
+    src: "https://picsum.photos/id/4/150",
+  },
+  {
+    name: "caterpie",
     type: "bug/poison",
-    evolutionLevel: "1",
-    otherForms: "none",
+    "evolution-level": "1",
+    "other-forms": "none",
+    src: "https://picsum.photos/id/5/150",
   },
   {
-    name: "Magikarp",
+    name: "magikarp",
     type: "water",
-    evolutionLevel: "1",
-    otherForms: "Gyardos",
+    "evolution-level": "1",
+    "other-forms": "Gyardos",
+    src: "https://picsum.photos/id/6/150",
   },
 ];
 
@@ -36,9 +47,8 @@ const pokemonsSelect = document.querySelector(".pokemons-select");
 let optionsToSelect = "";
 
 pokemonList.forEach((element) => {
-  optionsToSelect = `${optionsToSelect} <option value="${element.name}">${element.name}</option>`;
+  optionsToSelect = `${optionsToSelect} <option class="text-capitalize" value="${element.name}">${element.name}</option>`;
 });
-console.log(pokemonsSelect);
 pokemonsSelect.innerHTML = optionsToSelect;
 
 pokemonsSelect.addEventListener("change", setPokemonDataToTemplate);
@@ -46,15 +56,13 @@ pokemonsSelect.addEventListener("change", setPokemonDataToTemplate);
 setPokemonDataToTemplate();
 
 function setPokemonDataToTemplate() {
-  document.getElementById("name-placeholder").innerHTML =
-    pokemonList[pokemonsSelect.selectedIndex].name;
-
-  document.getElementById("type-placeholder").innerHTML =
-    pokemonList[pokemonsSelect.selectedIndex].type;
-
-  document.getElementById("evolutionLevel-placeholder").innerHTML =
-    pokemonList[pokemonsSelect.selectedIndex].evolutionLevel;
-
-  document.getElementById("otherForms-placeholder").innerHTML =
-    pokemonList[pokemonsSelect.selectedIndex].otherForms;
+  const selectedPokemon = pokemonList[pokemonsSelect.selectedIndex];
+  for (const property in selectedPokemon) {
+    if (property === "src") {
+      document.querySelector(".portrait").src = selectedPokemon[property];
+    } else {
+      document.querySelector(`.${property}-placeholder`).innerHTML =
+        selectedPokemon[property];
+    }
+  }
 }
