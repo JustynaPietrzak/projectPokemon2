@@ -8,12 +8,12 @@
   font-style: normal;
 }
 
-.page {
+.page1 {
   margin: auto 0%;
   background: url("grafika/Pikachu-SVG.svg") no-repeat;
 }
 
-/* .page::after {
+/* .page1::after {
   content: "";
   background: url("grafika/fancy-background.jpg");
   opacity: 0.3;
