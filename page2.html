@@ -14,21 +14,31 @@
     <title>Document</title>
   </head>
   <body>
-    <div cass="page2">
+    <div class="page2">
       <nav>
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills mb-5">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"
+            <a class="nav-link" aria-current="page" href="#"
               >Poke-library</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Your Pokeball</a>
+            <a class="nav-link active" href="#">Your Pokeball</a>
           </li>
         </ul>
       </nav>
-
-      
+      <div
+        class="pokeball-box col-12 col-lg-8 offset-lg-2 rounded-5"
+      >
+    <div class="cards-box"></div>
+      <div
+        class="empty col-12 col-lg-10 offset-lg-1 col-sm-10 bg-light rounded-5 border border-warning border-5"
+      >
+        <h2 class="h-empty">Your pokeball is empty</h2>
+      </div>
     </div>
+    <footer>
+      <img class="logo" src="grafika/logo.svg" alt="logo Pokemon Center" />
+    </footer>
   </body>
 </html>

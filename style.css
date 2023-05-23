@@ -10,20 +10,8 @@
 
 .page1 {
   margin: auto 0%;
-  background: url("grafika/Pikachu-SVG.svg") no-repeat;
+  background: url("grafika/yellow-background-opacity.png") no-repeat;
 }
-
-/* .page1::after {
-  content: "";
-  background: url("grafika/fancy-background.jpg");
-  opacity: 0.3;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-} */
 
 .pokemons-select {
   width: 50%;
@@ -38,14 +26,20 @@
   color: #de4604;
 }
 
+/* //ale to nie działa// */
+.portrait {
+  display: flex;
+  justify-self: center;
+}
+
 td {
   width: 50%;
 }
 
-.pikachu-image {
+/* .pikachu-image {
   background: url(grafika/pl.svg) no-repeat center center / contain;
   height: 210px;
-}
+} */
 
 .picture-display {
   display: flex;
@@ -54,20 +48,44 @@ td {
   background-color: antiquewhite;
 }
 
+.add-button {
+  background-color: #de4604;
+  border-radius: 40px;
+  border-color: #de4604;
+  color: #fff;
+}
+
+/* .column {
+  height: 50px;
+  width: 20px;
+}
+
+.pokeball-box {
+  background-color: #ffc266;
+  height: 700px;
+} */
+
+/* //Pola empty są wyświetlane tylko wtedy, gdy w pokeballu nie ma żadnych pokemonów//
+.empty {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+  display: none;
+}
+
+.h-empty {
+  font-family: "Pokemon  Solid";
+  align-self: center;
+} */
+
 footer {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-top: 10rem;
   background-color: white;
   height: 5rem;
 }
 
 .logo {
   width: 15rem;
-}
-
-.pokemon-napis {
-  text-align: end;
-  z-index: -1;
 }
