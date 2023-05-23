@@ -26,12 +26,6 @@
   color: #de4604;
 }
 
-/* //ale to nie działa// */
-.portrait {
-  display: flex;
-  justify-self: center;
-}
-
 td {
   width: 50%;
 }
