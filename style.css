@@ -8,7 +8,7 @@
   font-style: normal;
 }
 
-.page1 {
+.whole-page {
   margin: auto 0%;
   background: url("grafika/yellow-background-opacity.png") no-repeat;
 }
@@ -24,6 +24,10 @@
   margin-bottom: 25px;
   font-family: "Pokemon  Solid";
   color: #de4604;
+}
+
+.portrait {
+  width: 150px;
 }
 
 td {
