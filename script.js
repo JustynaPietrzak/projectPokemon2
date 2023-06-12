@@ -99,28 +99,3 @@ function activeButton(button) {
   navigationButtons.forEach((btn) => btn.classList.remove("active"));
   button.classList.add("active");
 }
-
-// const displayPokeLibrary = document.querySelector(".page2");
-
-// displayPokeLibrary.addEventListener("click", (e) => {
-//   document.getElementsByClassName(".page2").style.display = "none";
-// });
-
-// document.getElementsByClassName(".page1").style.display = "none";
-
-// const pokeLibrary = document.querySelector(".page1");
-
-// const yourPokeball = document.querrySelector(".page2");
-
-// const addButton = document.querySelector(".add-button");
-// const list = document.querySelector(".pokeball-box");
-
-// addButton.addEventListener("click", (e) => {
-//   counter++;
-//   const el = document.createElement("div");
-//   el.classList.add("element");
-//   el.innerText = "To jest element " + counter;
-//   list.appendChild(el);
-// });
-
-// let counter = 0;

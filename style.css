@@ -13,6 +13,15 @@
   background: url("grafika/yellow-background-opacity.png") no-repeat;
 }
 
+.navigation-btn {
+  background-color: #de4604;
+  color: white;
+  border-color: #de4604;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 10px 20px;
+}
+
 .pokemons-select {
   width: 50%;
   height: 35px;
@@ -53,15 +62,15 @@ td {
   color: #fff;
 }
 
-/* .column {
-  height: 50px;
-  width: 20px;
+.choosen-pokemons {
+  background-color: #ffc266;
+  height: 900px;
 }
 
-.pokeball-box {
+.chosen-pokemons-head {
   background-color: #ffc266;
-  height: 700px;
-} */
+  border-collapse: collapse;
+}
 
 /* //Pola empty są wyświetlane tylko wtedy, gdy w pokeballu nie ma żadnych pokemonów//
 .empty {
@@ -81,7 +90,7 @@ footer {
   text-align: center;
   justify-content: center;
   background-color: white;
-  height: 5rem;
+  height: 60px;
 }
 
 .logo {
