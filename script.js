@@ -99,3 +99,33 @@ function activeButton(button) {
   navigationButtons.forEach((btn) => btn.classList.remove("active"));
   button.classList.add("active");
 }
+
+// function addItem(selectedPokemon) {
+//   table.innerHTML +=
+//   `<tr>
+//   <td>${counter++}</td>
+//   <td>${selectedPokemon.src}</td>
+//   <td>${selectedPokemon.name}</td>
+//   <td>${selectedPokemon.type}</td>
+//   <td>${selectedPokemon.evolutionLevel}</td>  
+<td><button>Remove</button></td> 
+//   </tr>`  
+// }
+
+// function addingPokemonsByClick(){
+//   document.getElementsByClassName(.add-button);S
+//   addEventListener(click,addItem);
+
+// }
+
+// function setPokemonDataToTemplate() {
+//   const selectedPokemon = pokemonList[pokemonsSelect.selectedIndex];
+//   for (const property in selectedPokemon) {
+//     if (property === "src") {
+//       document.querySelector(".portrait").src = selectedPokemon[property];
+//     } else {
+//       document.querySelector(`.${property}-placeholder`).innerHTML =
+//         selectedPokemon[property];
+//     }
+//   }
+// }
