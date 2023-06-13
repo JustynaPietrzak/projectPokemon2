@@ -1,5 +1,6 @@
 const pokemonList = [
   {
+    id: 1,
     name: "pikachu",
     type: "electric",
     "evolution-level": "1",
@@ -7,6 +8,7 @@ const pokemonList = [
     src: "https://nexus.traction.one/images/pokemon/pokemon/25.png",
   },
   {
+    id: 2,
     name: "bulbasaur",
     type: "grass/poison",
     "evolution-level": "1",
@@ -14,6 +16,7 @@ const pokemonList = [
     src: "https://nexus.traction.one/images/pokemon/pokemon/1.png",
   },
   {
+    id: 3,
     name: "charizard",
     type: "fire/flying",
     "evolution-level": "3",
@@ -21,6 +24,7 @@ const pokemonList = [
     src: "https://nexus.traction.one/images/pokemon/pokemon/6.png",
   },
   {
+    id: 4,
     name: "onyx",
     type: "stone",
     "evolution-level": "2",
@@ -28,6 +32,7 @@ const pokemonList = [
     src: null,
   },
   {
+    id: 5,
     name: "caterpie",
     type: "bug/poison",
     "evolution-level": "1",
@@ -35,6 +40,7 @@ const pokemonList = [
     src: "https://nexus.traction.one/images/pokemon/pokemon/10.png",
   },
   {
+    id: 6,
     name: "magikarp",
     type: "water",
     "evolution-level": "1",
@@ -51,7 +57,10 @@ pokemonList.forEach((element) => {
 });
 pokemonsSelect.innerHTML = optionsToSelect;
 
-pokemonsSelect.addEventListener("change", setPokemonDataToTemplate);
+pokemonsSelect.addEventListener("change", () => {
+  setPokemonDataToTemplate();
+  OnOffButton();
+});
 
 setPokemonDataToTemplate();
 
@@ -60,10 +69,22 @@ function setPokemonDataToTemplate() {
   for (const property in selectedPokemon) {
     if (property === "src") {
       document.querySelector(".portrait").src = selectedPokemon[property];
-    } else {
+    } else if (property !== "id") {
       document.querySelector(`.${property}-placeholder`).innerHTML =
         selectedPokemon[property];
     }
+  }
+}
+
+function OnOffButton() {
+  const addToPokedexButton = document.querySelector(".add-button");
+  const selectedPokemon = pokemonList[pokemonsSelect.selectedIndex];
+  if (
+    arrayWithAddedPokemons.find((element) => element.id === selectedPokemon.id)
+  ) {
+    addToPokedexButton.disabled = true;
+  } else {
+    addToPokedexButton.disabled = false;
   }
 }
 
@@ -100,32 +121,54 @@ function activeButton(button) {
   button.classList.add("active");
 }
 
-// function addItem(selectedPokemon) {
-//   table.innerHTML +=
-//   `<tr>
-//   <td>${counter++}</td>
-//   <td>${selectedPokemon.src}</td>
-//   <td>${selectedPokemon.name}</td>
-//   <td>${selectedPokemon.type}</td>
-//   <td>${selectedPokemon.evolutionLevel}</td>  
-<td><button>Remove</button></td> 
-//   </tr>`  
-// }
+// Adding pokemons to table in pokedex
 
-// function addingPokemonsByClick(){
-//   document.getElementsByClassName(.add-button);S
-//   addEventListener(click,addItem);
+let arrayWithAddedPokemons = [];
 
-// }
+const tableWithPokemons = document.querySelector(
+  ".table-with-pokemons .table tbody"
+);
 
-// function setPokemonDataToTemplate() {
-//   const selectedPokemon = pokemonList[pokemonsSelect.selectedIndex];
-//   for (const property in selectedPokemon) {
-//     if (property === "src") {
-//       document.querySelector(".portrait").src = selectedPokemon[property];
-//     } else {
-//       document.querySelector(`.${property}-placeholder`).innerHTML =
-//         selectedPokemon[property];
-//     }
-//   }
-// }
+function updateTemplateTable() {
+  let rows = "";
+
+  arrayWithAddedPokemons.forEach((element, index) => {
+    rows =
+      rows +
+      ` <tr>
+<td>${index + 1}</td>
+<td><img src="${element.src}"/></td>
+<td>${element.name}</td>
+<td>${element.type}</td>
+<td>${element["evolution-level"]}</td>
+<td><button onclick="removePokemon(${
+        element.id
+      })" class="remove-button m-4 shadow-lg p-1 rounded">Remove</button></td>
+</tr>`;
+  });
+  tableWithPokemons.innerHTML = rows;
+}
+
+function addPokemon() {
+  const selectedPokemonToAdd = pokemonList[pokemonsSelect.selectedIndex];
+
+  if (
+    !arrayWithAddedPokemons.find((item) => item.id === selectedPokemonToAdd.id)
+  ) {
+    arrayWithAddedPokemons.push({ ...selectedPokemonToAdd });
+    updateTemplateTable();
+    OnOffButton();
+  }
+}
+
+document.querySelector(".add-button").addEventListener("click", addPokemon);
+
+//Removing pokemons from Pokedex table
+
+function removePokemon(id) {
+  arrayWithAddedPokemons = arrayWithAddedPokemons.filter(
+    (element) => element.id !== id
+  );
+  updateTemplateTable();
+  OnOffButton();
+}

@@ -62,6 +62,20 @@ td {
   color: #fff;
 }
 
+.add-button:disabled {
+  background-color: #5f4343;
+  border-radius: 40px;
+  border-color: #5f4343;
+  color: #fff;
+}
+
+.remove-button {
+  background-color: #de4604;
+  border-radius: 40px;
+  border-color: #de4604;
+  color: #fff;
+}
+
 .choosen-pokemons {
   background-color: #ffc266;
   height: 900px;
