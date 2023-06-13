@@ -14,12 +14,16 @@
 }
 
 .navigation-btn {
-  background-color: #de4604;
+  background-color: #d57247;
   color: white;
   border-color: #de4604;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 10px 20px;
+}
+
+.navigation-btn.active {
+  outline: 3px solid black !important;
 }
 
 .pokemons-select {
