@@ -1,35 +1,36 @@
 @font-face {
   font-family: "Pokemon  Solid";
-  src: url("fonts/POS_____.eot"), url("fonts/POS_____.woff") format("woff"),
-    url("fonts/POS_____.ttf") format("truetype"),
-    url("fonts/POS_____.svg") format("svg");
+  src: url("fonts/Pokemon-font.eot"),
+    url("fonts/Pokemon-font.woff") format("woff"),
+    url("fonts/Pokemon-font.ttf") format("truetype"),
+    url("fonts/Pokemon-font.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-body {
+.whole-page {
   margin: auto 0%;
+  background: url("grafika/yellow-background-opacity.png") no-repeat;
 }
 
-body::after {
-  content: "";
-  background: url("grafika/fancy-background.jpg");
-  opacity: 0.3;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
+.navigation-btn {
+  background-color: #d57247;
+  color: white;
+  border-color: #de4604;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 10px 20px;
 }
 
-#pokemons {
-  width: 17rem;
-  height: 3rem;
+.navigation-btn.active {
+  outline: 3px solid black !important;
+}
+
+.pokemons-select {
+  width: 50%;
+  height: 35px;
   border: solid #ffd000 5px;
   border-radius: 20px;
-  margin: 40px;
-  text-align: center;
 }
 
 .choose-pokemon {
@@ -38,8 +39,12 @@ body::after {
   color: #de4604;
 }
 
-.pikachu-picture {
-  position: relative;
+.portrait {
+  width: 150px;
+}
+
+td {
+  width: 50%;
 }
 
 .picture-display {
@@ -49,20 +54,49 @@ body::after {
   background-color: antiquewhite;
 }
 
+.add-button {
+  background-color: #de4604;
+  border-radius: 40px;
+  border-color: #de4604;
+  color: #fff;
+}
+
+.add-button:disabled {
+  background-color: #5f4343;
+  border-radius: 40px;
+  border-color: #5f4343;
+  color: #fff;
+}
+
+.remove-button {
+  background-color: #de4604;
+  border-radius: 40px;
+  border-color: #de4604;
+  color: #fff;
+}
+
+.choosen-pokemons {
+  background-color: #ffc266;
+  height: 900px;
+}
+
+.chosen-pokemons-head {
+  background-color: #ffc266;
+  border-collapse: collapse;
+}
+
+.pokemon-in-table {
+  width: 30px;
+}
+
 footer {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-top: 10rem;
   background-color: white;
-  height: 5rem;
+  height: 60px;
 }
 
 .logo {
   width: 15rem;
-}
-
-.pokemon-napis {
-  text-align: end;
-  z-index: -1;
 }
