@@ -47,11 +47,6 @@ td {
   width: 50%;
 }
 
-/* .pikachu-image {
-  background: url(grafika/pl.svg) no-repeat center center / contain;
-  height: 210px;
-} */
-
 .picture-display {
   display: flex;
   width: 30px;
@@ -90,18 +85,9 @@ td {
   border-collapse: collapse;
 }
 
-/* //Pola empty są wyświetlane tylko wtedy, gdy w pokeballu nie ma żadnych pokemonów//
-.empty {
-  display: flex;
-  justify-content: center;
-  height: 650px;
-  display: none;
+.pokemon-in-table {
+  width: 30px;
 }
-
-.h-empty {
-  font-family: "Pokemon  Solid";
-  align-self: center;
-} */
 
 footer {
   display: flex;

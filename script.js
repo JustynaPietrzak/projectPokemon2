@@ -48,24 +48,27 @@ const pokemonList = [
     src: "https://nexus.traction.one/images/pokemon/pokemon/129.png",
   },
 ];
+const selectTagForPokemons = document.querySelector(".pokemons-select");
+let optionsTagForPokemon = "";
 
-const pokemonsSelect = document.querySelector(".pokemons-select");
-let optionsToSelect = "";
-
-pokemonList.forEach((element) => {
-  optionsToSelect = `${optionsToSelect} <option class="text-capitalize" value="${element.name}">${element.name}</option>`;
-});
-pokemonsSelect.innerHTML = optionsToSelect;
-
-pokemonsSelect.addEventListener("change", () => {
-  setPokemonDataToTemplate();
-  OnOffButton();
-});
-
+setPokemonOptionsToSelectTag();
 setPokemonDataToTemplate();
+handleChangePokemonInSelectTag();
 
+function setPokemonOptionsToSelectTag() {
+  pokemonList.forEach((element) => {
+    optionsTagForPokemon = `${optionsTagForPokemon} <option class="text-capitalize" value="${element.name}">${element.name}</option>`;
+  });
+  selectTagForPokemons.innerHTML = optionsTagForPokemon;
+}
+function handleChangePokemonInSelectTag() {
+  selectTagForPokemons.addEventListener("change", () => {
+    setPokemonDataToTemplate();
+    OnOffButton();
+  });
+}
 function setPokemonDataToTemplate() {
-  const selectedPokemon = pokemonList[pokemonsSelect.selectedIndex];
+  const selectedPokemon = pokemonList[selectTagForPokemons.selectedIndex];
   for (const property in selectedPokemon) {
     if (property === "src") {
       document.querySelector(".portrait").src = selectedPokemon[property];
@@ -75,60 +78,71 @@ function setPokemonDataToTemplate() {
     }
   }
 }
-
 function OnOffButton() {
-  const addToPokedexButton = document.querySelector(".add-button");
-  const selectedPokemon = pokemonList[pokemonsSelect.selectedIndex];
+  const addToPokemonListButton = document.querySelector(".add-button");
+  const selectedPokemon = pokemonList[selectTagForPokemons.selectedIndex];
   if (
     arrayWithAddedPokemons.find((element) => element.id === selectedPokemon.id)
   ) {
-    addToPokedexButton.disabled = true;
+    addToPokemonListButton.disabled = true;
   } else {
-    addToPokedexButton.disabled = false;
+    addToPokemonListButton.disabled = false;
   }
 }
 
 // Logic for changing pages
 // These consts should be the same like classes in template 'cause they're related
-
 const HOME_PAGE = "home";
 const YOUR_POKEDEX = "your-pokedex";
 const pages = [HOME_PAGE, YOUR_POKEDEX];
+const navigationButtons = document.querySelectorAll(".navigation-btn");
 let currentPage = HOME_PAGE;
 
-const navigationButtons = document.querySelectorAll(".navigation-btn");
-navigationButtons.forEach((btn, index) => (btn.innerHTML = pages[index]));
+setNameForEachContent();
+namingNavigationButtons();
+handlingNavigationButtons();
 
-navigationButtons.forEach((btn) => {
-  btn.addEventListener("click", (event) => {
-    console.log(event.target.innerHTML);
-    currentPage = event.target.innerHTML;
-    activeButton(btn);
-    displayCurrentPage();
+function handlingNavigationButtons() {
+  navigationButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      setButtonAsActive(btn);
+      displayCurrentPage(event.target.innerHTML);
+    });
   });
-});
-
-function displayCurrentPage() {
+}
+function setNameForEachContent() {
+  const contents = document.querySelectorAll(".content");
+  contents.forEach((content, index) => content.classList.add(pages[index]));
+}
+function namingNavigationButtons() {
+  navigationButtons.forEach((btn, index) => (btn.innerHTML = pages[index]));
+}
+function displayCurrentPage(pageName) {
+  currentPage = pageName;
   pages.forEach((page) =>
     document.querySelector(`.${page}`).classList.add("d-none")
   );
   document.querySelector(`.${currentPage}`).classList.remove("d-none");
   document.querySelector(`.${currentPage}`).classList.add("d-block");
 }
-
-function activeButton(button) {
+function setButtonAsActive(button) {
   navigationButtons.forEach((btn) => btn.classList.remove("active"));
   button.classList.add("active");
 }
 
 // Adding pokemons to table in pokedex
-
-let arrayWithAddedPokemons = [];
-
-const tableWithPokemons = document.querySelector(
+const tableTabWithPokemons = document.querySelector(
   ".table-with-pokemons .table tbody"
 );
+let arrayWithAddedPokemons = [];
 
+handlingClickAddButton();
+
+function handlingClickAddButton() {
+  document
+    .querySelector(".add-button")
+    .addEventListener("click", handlingLogicWhenAddingPokemon);
+}
 function updateTemplateTable() {
   let rows = "";
 
@@ -136,21 +150,30 @@ function updateTemplateTable() {
     rows =
       rows +
       ` <tr>
-<td>${index + 1}</td>
-<td><img src="${element.src}"/></td>
-<td>${element.name}</td>
-<td>${element.type}</td>
-<td>${element["evolution-level"]}</td>
-<td><button onclick="removePokemon(${
+<th scope="row"><div class="m-md-2  d-flex justify-content-center align-items-center">${
+        index + 1
+      }</div></th>
+<td><div class="m-md-2 d-flex justify-content-center align-items-center"><img class="pokemon-in-table"src="${
+        element.src
+      }"/></div></td>
+<td><div class="m-md-2 d-flex justify-content-center align-items-center">${
+        element.name
+      }</div></td>
+<td><div class="m-md-2 d-flex justify-content-center align-items-center">${
+        element.type
+      }</div></td>
+<td class= "d-none d-md-table-cell"><div class="m-md-2 d-flex justify-content-center align-items-center">${
+        element["evolution-level"]
+      }</div></td>
+<td><div class="m-md-2 d-flex justify-content-center align-items-center"><button onclick="handlingLogicWhenRemovingPokemon(${
         element.id
-      })" class="remove-button m-4 shadow-lg p-1 rounded">Remove</button></td>
+      })" class="remove-button shadow-lg rounded">Remove</button></div></td>
 </tr>`;
   });
-  tableWithPokemons.innerHTML = rows;
+  tableTabWithPokemons.innerHTML = rows;
 }
-
-function addPokemon() {
-  const selectedPokemonToAdd = pokemonList[pokemonsSelect.selectedIndex];
+function handlingLogicWhenAddingPokemon() {
+  const selectedPokemonToAdd = pokemonList[selectTagForPokemons.selectedIndex];
 
   if (
     !arrayWithAddedPokemons.find((item) => item.id === selectedPokemonToAdd.id)
@@ -161,11 +184,8 @@ function addPokemon() {
   }
 }
 
-document.querySelector(".add-button").addEventListener("click", addPokemon);
-
 //Removing pokemons from Pokedex table
-
-function removePokemon(id) {
+function handlingLogicWhenRemovingPokemon(id) {
   arrayWithAddedPokemons = arrayWithAddedPokemons.filter(
     (element) => element.id !== id
   );

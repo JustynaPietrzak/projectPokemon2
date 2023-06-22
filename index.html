@@ -13,16 +13,14 @@
     />
     <title>Projekt Pokemon</title>
   </head>
-
   <body>
     <div class="whole-page">
       <nav>
-        <button class="navigation-btn activegir"></button>
+        <button class="navigation-btn active"></button>
         <button class="navigation-btn"></button>
       </nav>
-      <div class="home">
-        
-        <div class="choosing-box container text-center mt-5">
+      <div class="content">
+        <div class="container text-center mt-5">
           <div class="column align-self-center">
             <div class="col-12 col-lg-6 offset-lg-3">
               <div class="bg-light rounded-5 border border-warning border-5">
@@ -40,32 +38,34 @@
                     </div>
                   </div>
                 </div>
-  
+
                 <table class="table">
                   <tbody>
                     <tr>
                       <td>Name:</td>
                       <td>
-                        <div class="name-placeholder text-capitalize"></div>
+                        <div class="name-placeholder text-capitalize m-2"></div>
                       </td>
                     </tr>
                     <tr>
                       <td>Type:</td>
-                      <td><div class="type-placeholder"></div></td>
+                      <td><div class="type-placeholder m-2"></div></td>
                     </tr>
                     <tr>
                       <td>Evolution level:</td>
-                      <td><div class="evolution-level-placeholder"></div></td>
+                      <td>
+                        <div class="evolution-level-placeholder m-2"></div>
+                      </td>
                     </tr>
                     <tr>
                       <td>Other forms:</td>
-                      <td><div class="other-forms-placeholder"></div></td>
+                      <td><div class="other-forms-placeholder m-2"></div></td>
                     </tr>
                   </tbody>
                 </table>
                 <button
                   type="button"
-                  class="add-button m-4 shadow-lg p-1 rounded"
+                  class="add-button m-2 shadow-lg p-1 rounded"
                   data-toggle="button"
                   aria-pressed="false"
                   autocomplete="off"
@@ -74,43 +74,39 @@
                 </button>
               </div>
             </div>
-  
-            
           </div>
         </div>
       </div>
-      <div class="your-pokedex d-none">
-        <div class="choosen-pokemons text-center col-12 col-lg-8 offset-lg-2 col-sm-10 bg-light rounded-5 border border-warning border-5 mt-4 mb-4">
-          <!-- <h2>Your Pokeball is empty.</h2> -->
+
+      <div class="content d-none">
+        <div
+          class="choosen-pokemons text-center col-12 col-lg-8 offset-lg-2 col-sm-10 bg-light rounded-5 border border-warning border-5 mt-4 mb-4"
+        >
           <div class="table-with-pokemons">
-            <table>
-                <table class="table mt-4">
-                  <thead class="chosen-pokemons-head">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Picture</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Type</th>
-                      <th scope="col">Evolution level</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                  </tbody>
+            <table class="table mt-4">
+              <thead class="chosen-pokemons-head">
+                <tr>
+                  <th scope="col" class="text-nowrap">#</th>
+                  <th scope="col" class="text-nowrap">Picture</th>
+                  <th scope="col" class="text-nowrap">Name</th>
+                  <th scope="col" class="text-nowrap">Type</th>
+                  <th scope="col" class="text-nowrap d-none d-md-table-cell">
+                    Evolution level
+                  </th>
+                  <th scope="col" class="text-nowrap">Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
             </table>
           </div>
         </div>
       </div>
-  
+
       <footer>
         <img class="logo" src="grafika/logo.svg" alt="logo Pokemon Center" />
       </footer>
+
       <script src="script.js"></script>
-
-
-      
-    </body>
-    
-    
+    </div>
+  </body>
 </html>
